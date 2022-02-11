@@ -227,6 +227,11 @@ function drawPolygonShape(ctx, shape, color) {
 }
 
 function drawDrawing(ctx, scalefactor, drawing, color) {
+  if (JSON.stringify(drawing) === '{}')
+  {
+    console.log(drawing);
+    return;
+  }
   if (["segment", "arc", "circle", "curve"].includes(drawing.type)) {
     drawedge(ctx, scalefactor, drawing, color);
   } else if (drawing.type == "polygon") {
